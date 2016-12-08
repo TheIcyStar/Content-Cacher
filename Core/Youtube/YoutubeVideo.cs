@@ -32,7 +32,11 @@ namespace Content_Cacher {
 			}
 
 			//get ytplayer's config
-			JObject ytConfig = JObject.Parse(Regex.Match(html, @"ytplayer\.config\s*=\s*(\{.+?\});").Value);
+			var dataRegex = new Regex(@"ytplayer\.config\s*=\s*(\{.+?\});", RegexOptions.Multiline);
+
+			string extractedJson = dataRegex.Match(html).Result("$1");
+
+			JObject ytConfig = JObject.Parse(extractedJson);
 
 			//Get title
 			newInfo.Title = extractVideoTitle(html);
