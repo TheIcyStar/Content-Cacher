@@ -7,7 +7,7 @@ using System.Windows.Forms;
 namespace Content_Cacher {
 	static class Program {
 		/// <summary>
-		/// The main entry point for the application.
+		/// I am sorry to anyone who has to read my newbie c# code
 		/// </summary>
 		[STAThread]
 		static void Main() {

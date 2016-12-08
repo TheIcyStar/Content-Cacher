@@ -31,6 +31,7 @@
 			this.Txt1 = new System.Windows.Forms.Label();
 			this.pictureBox1 = new System.Windows.Forms.PictureBox();
 			this.panel2 = new System.Windows.Forms.Panel();
+			this.label6 = new System.Windows.Forms.Label();
 			this.label5 = new System.Windows.Forms.Label();
 			this.Resolutions = new System.Windows.Forms.ComboBox();
 			this.DownloadProgress = new System.Windows.Forms.ProgressBar();
@@ -42,7 +43,7 @@
 			this.btnAddUrl = new System.Windows.Forms.Button();
 			this.label1 = new System.Windows.Forms.Label();
 			this.txtUrlBox = new System.Windows.Forms.TextBox();
-			this.label6 = new System.Windows.Forms.Label();
+			this.button1 = new System.Windows.Forms.Button();
 			this.panel1.SuspendLayout();
 			this.LogoPanel.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -140,6 +141,7 @@
 			// panel2
 			// 
 			this.panel2.AutoSize = true;
+			this.panel2.Controls.Add(this.button1);
 			this.panel2.Controls.Add(this.label6);
 			this.panel2.Controls.Add(this.label5);
 			this.panel2.Controls.Add(this.Resolutions);
@@ -158,6 +160,16 @@
 			this.panel2.Name = "panel2";
 			this.panel2.Size = new System.Drawing.Size(744, 501);
 			this.panel2.TabIndex = 1;
+			// 
+			// label6
+			// 
+			this.label6.AutoSize = true;
+			this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label6.Location = new System.Drawing.Point(282, 66);
+			this.label6.Name = "label6";
+			this.label6.Size = new System.Drawing.Size(91, 17);
+			this.label6.TabIndex = 11;
+			this.label6.Text = "itag selection";
 			// 
 			// label5
 			// 
@@ -244,7 +256,7 @@
 			this.btnAddUrl.Name = "btnAddUrl";
 			this.btnAddUrl.Size = new System.Drawing.Size(100, 31);
 			this.btnAddUrl.TabIndex = 2;
-			this.btnAddUrl.Text = "Test url";
+			this.btnAddUrl.Text = "Add to queue";
 			this.btnAddUrl.UseVisualStyleBackColor = true;
 			this.btnAddUrl.Click += new System.EventHandler(this.btnAddUrl_Click);
 			// 
@@ -265,15 +277,14 @@
 			this.txtUrlBox.Size = new System.Drawing.Size(374, 20);
 			this.txtUrlBox.TabIndex = 0;
 			// 
-			// label6
+			// button1
 			// 
-			this.label6.AutoSize = true;
-			this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label6.Location = new System.Drawing.Point(282, 66);
-			this.label6.Name = "label6";
-			this.label6.Size = new System.Drawing.Size(91, 17);
-			this.label6.TabIndex = 11;
-			this.label6.Text = "itag selection";
+			this.button1.Location = new System.Drawing.Point(506, 266);
+			this.button1.Name = "button1";
+			this.button1.Size = new System.Drawing.Size(100, 31);
+			this.button1.TabIndex = 12;
+			this.button1.Text = "Begin download";
+			this.button1.UseVisualStyleBackColor = true;
 			// 
 			// MainFrame
 			// 
@@ -318,6 +329,7 @@
 		private System.Windows.Forms.ComboBox Resolutions;
 		private System.Windows.Forms.Label label5;
 		private System.Windows.Forms.Label label6;
+		private System.Windows.Forms.Button button1;
 	}
 }
 
