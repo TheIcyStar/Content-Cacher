@@ -32,15 +32,13 @@ namespace Content_Cacher {
 			}
 
 			//get ytplayer's config
-			JObject ytConfig = JObject.Parse(Regex.Match(html, @"ytplayer\.config\s*=\s*(\{.+?\}").Value);
+			JObject ytConfig = JObject.Parse(Regex.Match(html, @"ytplayer\.config\s*=\s*(\{.+?\});").Value);
 
 			//Get title
 			newInfo.Title = extractVideoTitle(html);
 
 			//parse description (todo: find out how to have the description save special unicode chars like emojis)
 			newInfo.Description = extractVideoDescription(html);
-
-			//parse availible itags
 
 			return newInfo;
 		}
