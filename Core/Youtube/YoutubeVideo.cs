@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Web;
 using System.Text.RegularExpressions;
 using Newtonsoft.Json.Linq;
+using System.Collections.Generic;
 
 namespace Content_Cacher {
 	/// <summary>
@@ -44,6 +46,21 @@ namespace Content_Cacher {
 			//parse description (todo: find out how to have the description save special unicode chars like emojis)
 			newInfo.Description = extractVideoDescription(html);
 
+			//Get download urls
+			string[] streamMap = GetDownloadUrls(ytConfig).Split(',');
+			int count = 0;
+			foreach (string s in streamMap) {
+				int itag = int.Parse(Regex.Match(s, @"(?<=itag=)(\d+)").Value);//gets itag from the url
+				string FormattedUrl = "";
+
+				FormattedUrl = System.Net.WebUtility.HtmlDecode(FormattedUrl);
+				FormattedUrl = System.Net.WebUtility.HtmlDecode(FormattedUrl);
+
+				Console.WriteLine(s);
+				count++;
+			}
+
+
 			return newInfo;
 		}
 		
@@ -70,12 +87,18 @@ namespace Content_Cacher {
 		}
 
 		/// <summary>
-		/// Returns the availible download urls (todo: figure out in what data type, array of a videotype class?)
+		/// Returns the list of availible download urls
 		/// </summary>
 		/// <param name="html">raw HTML of a youtube video</param>
-		private void GetDownloadUrls(string html) {
+		private static string GetDownloadUrls(JObject ytplayerConfig) {
+			JToken streamMap = ytplayerConfig["args"]["url_encoded_fmt_stream_map"];
 
-			string stream_map = Regex.Match(html, @"(?<=encoded_fmt_stream_map)(.*)(?=)").Value; //fix regex
-        }
+			string streamMapString = streamMap == null ? null : streamMap.ToString();
+			if (streamMapString == null || streamMapString.Contains("been+removed")) {
+				//Handle "video does not exist"
+			}
+			//todo: append the adaptive stream maps onto this list
+			return streamMapString;
+		}
 	}
 }

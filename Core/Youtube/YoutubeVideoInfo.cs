@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Content_Cacher {
 	/// <summary>
@@ -14,11 +11,16 @@ namespace Content_Cacher {
 		public string Title;
 		public string Description;
 
+		public int Duration; //in seconds
+
+
 		//int itag, string url
 		public Dictionary<int, string> AvailibleDownloads = new Dictionary<int, string>();
 		
 		public int itag;
 		public string downloadURL;
+		public int Expire; //unix in seconds on when the download url becomes stale and new ones need to be fetched
+		//todo: move the parsing of download urls to right before downloading, since the urls become stale over time OR over different Ip addresses
 
 		/*to-be-added metadata
 		int Views;
@@ -26,8 +28,5 @@ namespace Content_Cacher {
 		int Dislikes;
 		string thumbnailURL;
 		//*/
-		
-		
-
 	}
 }
