@@ -56,7 +56,7 @@ namespace Content_Cacher {
 				FormattedUrl = System.Net.WebUtility.HtmlDecode(FormattedUrl);
 				FormattedUrl = System.Net.WebUtility.HtmlDecode(FormattedUrl);
 
-				Console.WriteLine(s);
+				//Console.WriteLine(s);
 				count++;
 			}
 
